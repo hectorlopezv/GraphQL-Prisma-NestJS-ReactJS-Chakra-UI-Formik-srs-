@@ -1,8 +1,10 @@
 import { Module } from '@nestjs/common';
-import { DonationsService } from './donations.service';
+import { PrismaModule } from 'src/prisma/prisma.module';
 import { DonationsResolver } from './donations.resolver';
+import { DonationsService } from './donations.service';
 
 @Module({
-  providers: [DonationsResolver, DonationsService]
+  imports: [PrismaModule],
+  providers: [DonationsResolver, DonationsService],
 })
 export class DonationsModule {}
