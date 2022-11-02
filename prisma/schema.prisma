@@ -20,7 +20,7 @@ model Donation {
   count       Int
   
   createdAt   DateTime @default(now())
-  /// @Validator.MinLength(3)
+  /// @Validator.MinLength(3,{ message: 'Title is too short' })
   displayName String
   /// @Validator.IsEmail()
   email       String

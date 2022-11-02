@@ -16,7 +16,7 @@ export class DonationUncheckedCreateInput {
     createdAt?: Date | string;
 
     @Field(() => String, {nullable:false})
-    @Validator.MinLength(3)
+    @Validator.MinLength(3, { message: 'Title is too short' })
     displayName!: string;
 
     @Field(() => String, {nullable:false})

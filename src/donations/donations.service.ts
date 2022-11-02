@@ -7,6 +7,7 @@ import { PrismaService } from 'src/prisma/prisma.service';
 export class DonationsService {
   constructor(private readonly prisma: PrismaService) {}
   create(createDonationInput: DonationCreateInput) {
+    console.log('createDonationInput', createDonationInput);
     return this.prisma.donation.create({ data: createDonationInput });
   }
   async getTotal() {

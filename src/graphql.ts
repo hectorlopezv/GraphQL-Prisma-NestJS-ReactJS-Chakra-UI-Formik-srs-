@@ -20,7 +20,7 @@ export class CreateDonationInput {
 
 export class OrderByParams {
     field?: Nullable<string>;
-    order?: Nullable<string>;
+    direction?: Nullable<string>;
 }
 
 export class Donation {

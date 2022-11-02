@@ -23,7 +23,7 @@ input CreateDonationInput {
 
 input OrderByParams {
   field: String
-  order: String
+  direction: String
 }
 type Query {
   donations(orderBy: OrderByParams): [Donation]!
