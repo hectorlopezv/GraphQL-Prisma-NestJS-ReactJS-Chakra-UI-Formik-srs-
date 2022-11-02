@@ -5,8 +5,8 @@ import { ApolloServerPluginLandingPageLocalDefault } from 'apollo-server-core';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { DonationsModule } from './donations/donations.module';
-import { PrismaService } from './prisma/prisma.service';
 import { PrismaModule } from './prisma/prisma.module';
+import { PrismaService } from './prisma/prisma.service';
 @Module({
   imports: [
     GraphQLModule.forRoot<ApolloDriverConfig>({
@@ -15,6 +15,10 @@ import { PrismaModule } from './prisma/prisma.module';
       plugins: [ApolloServerPluginLandingPageLocalDefault()],
       typePaths: ['./**/*.graphql'],
       resolvers: { DateTime: GraphQLISODateTime },
+      subscriptions: {
+        'graphql-ws': true,
+        'subscriptions-transport-ws': true,
+      },
     }),
     DonationsModule,
     PrismaModule,
